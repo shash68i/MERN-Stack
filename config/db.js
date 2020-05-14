@@ -5,7 +5,10 @@ const db = config.get('mongoURI');
 // mongoose.connect() returns a promise so we use async await here
 const connectDB = async () => {
   try {
-    await mongoose.connect(db, { useUnifiedTopology: true });
+    await mongoose.connect(db, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    });
 
     console.log('MongoDB connected');
   } catch (err) {
